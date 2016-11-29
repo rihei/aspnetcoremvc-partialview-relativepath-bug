@@ -1,0 +1,5 @@
+src/PartialViewTest/obj/
+src/PartialViewTest/Properties/launchSettings.json
+.vs/
+src/PartialViewTest/bin/
+src/PartialViewTest/project.lock.json

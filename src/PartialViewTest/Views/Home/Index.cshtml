@@ -1,0 +1,78 @@
+﻿<h1>Partial view rendering in ASP.NET Core MVC 1.0.1</h1>
+
+<p>When a partial view is referenced in ASP.NET Core MVC 1.0.1 by a relative path (../), changes to the partial view's .cshtml file require a build to take effect.</p>
+<p>To test this:</p>
+<ol>
+	<li>Run the project as it is<br/>
+		=> TestPartial renders as number 1 and TestSharedPartial a letter A in every scenario.</li>
+	<li>
+		Keep the site running, and edit the 2 partials:
+		<ul>
+			<li>Change the TestPartial.cshtml's number to 2</li>
+			<li>Change the TestSharedPartial.cshtml's letter to B</li>
+		</ul>
+		=> Relatively referenced partial views will render the old content, while others show the new content.
+	</li>
+</ol>
+
+<ul class="tests">
+	<li>
+		Absolute reference (.cshtml):
+		<pre>Html.Partial("/Views/Other/_TestPartial.cshtml")</pre>
+		<span class="result">@Html.Partial("/Views/Other/_TestPartial.cshtml")</span>
+	</li>
+	<li>
+		<strong>Relative</strong> reference (.cshtml):<br />
+		<pre>Html.Partial("../Other/_TestPartial.cshtml")</pre>
+		<span class="result">@Html.Partial("../Other/_TestPartial.cshtml")</span>
+	</li>
+	<li>
+		<strong>Relative</strong> reference (no .cshtml):<br/>
+		<pre>Html.Partial("../Other/_TestPartial")</pre>
+		<span class="result">@Html.Partial("../Other/_TestPartial")</span>
+	</li>
+	<li>
+		From shared folder (no path):
+		<pre>Html.Partial("_TestSharedPartial")</pre>
+		<span class="result">@Html.Partial("_TestSharedPartial")</span>
+	</li>
+	<li>
+		From shared folder by absolute reference (with .cshtml):
+		<pre>Html.Partial("/Views/Shared/_TestSharedPartial.cshtml")</pre>
+		<span class="result">@Html.Partial("/Views/Shared/_TestSharedPartial.cshtml")</span>
+	</li>
+	<li>
+		From shared folder by <strong>relative</strong> reference:
+		<pre>Html.Partial("../Shared/_TestSharedPartial")</pre>
+		<span class="result">@Html.Partial("../Shared/_TestSharedPartial")</span>
+	</li>
+</ul>
+
+
+<style type="text/css">
+	
+	body {
+		font-family: Calibri, sans-serif;
+	}
+
+	ol>li {
+		margin-bottom: 1em;
+	}
+
+	.tests li {
+		border: 1px solid black;
+		width: 30em;
+		padding: 0.5em;
+		margin-bottom: 1em;
+		list-style-type: none;
+	}
+
+	pre {
+		margin: 0.5em 0;
+	}
+
+	.result {
+		background-color: burlywood;
+	}
+
+</style>
