@@ -4,35 +4,29 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace PartialViewTest
-{
-    public class Startup
-    {
-        public Startup(IHostingEnvironment env)
-        {
-            Configuration = new ConfigurationBuilder().Build();
-        }
+namespace PartialViewTest {
+	public class Startup {
 
-        public IConfigurationRoot Configuration { get; }
+		public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-        }
+		public Startup(IConfiguration configuration) {
+			Configuration = configuration;
+		}
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+		public void ConfigureServices(IServiceCollection services) {
+			services.AddMvc();
+		}
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
-    }
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+			if (env.IsDevelopment()) {
+				app.UseDeveloperExceptionPage();
+			}
+
+			app.UseMvc(routes => {
+				routes.MapRoute(
+					name: "default",
+					template: "{controller=Home}/{action=Index}/{id?}");
+			});
+		}
+	}
 }
