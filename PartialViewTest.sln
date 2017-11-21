@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70CC4797-B4E8-4071-83DA-6E086B9360A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A94444E-8CD6-4DF5-AC77-5BC6C05324EE}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PartialViewTest", "src\PartialViewTest\PartialViewTest.xproj", "{81DE08EA-0002-4D6C-A3A0-A22A524E7A77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PartialViewTest", "src\PartialViewTest\PartialViewTest.csproj", "{81DE08EA-0002-4D6C-A3A0-A22A524E7A77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{81DE08EA-0002-4D6C-A3A0-A22A524E7A77} = {70CC4797-B4E8-4071-83DA-6E086B9360A3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0363C93F-8AFB-4995-9474-8DD845A96C38}
 	EndGlobalSection
 EndGlobal
